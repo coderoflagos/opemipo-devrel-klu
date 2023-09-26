@@ -1,26 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Klu from '@kluai/core';
 
-function App() {
+const klu = new Klu('YOUR_API_KEY');
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    async function runAction() {
+      const result = await klu.actions.prompt('6942f034-6872-4eed-9bb3-7e3bf18e5743', 'Write a sentence about Machine Learning.');
+      console.log(result);
+    }
   );
 }
 
 export default App;
+
